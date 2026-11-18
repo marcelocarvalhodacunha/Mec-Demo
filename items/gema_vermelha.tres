@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dxdchydafj532"]
+
+[ext_resource type="Script" uid="uid://dswmb0larc7yx" path="res://scripts/data/item.gd" id="1_item"]
+[ext_resource type="Texture2D" uid="uid://c5uyfv5vxkld4" path="res://sprites/Kingdom_Pxels_Starter_Bundle/Tileset/Overworld/Chest/Chest_Add_Ons.png" id="2_addons"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icon"]
+atlas = ExtResource("2_addons")
+region = Rect2(7, 0, 7, 7)
+
+[resource]
+script = ExtResource("1_item")
+item_name = "Gema Vermelha"
+description = "Quente ao toque, como uma brasa."
+icon = SubResource("AtlasTexture_icon")

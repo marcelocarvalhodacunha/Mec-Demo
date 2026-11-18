@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/platform.gd" id="1_platform"]
+[ext_resource type="Texture2D" path="res://sprites/Kingdom_Pxels_Starter_Bundle/Tileset/Overworld/Ground/Ground_1.png" id="2_ground"]
+
+[node name="Platform" type="StaticBody2D"]
+script = ExtResource("1_platform")
+
+[node name="Visual" type="NinePatchRect" parent="."]
+offset_right = 64.0
+offset_bottom = 16.0
+texture = ExtResource("2_ground")
+region_rect = Rect2(0, 0, 32, 24)
+patch_margin_left = 4
+patch_margin_top = 5
+patch_margin_right = 4
+patch_margin_bottom = 6
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

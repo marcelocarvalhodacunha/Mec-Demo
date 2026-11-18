@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://byu8523unicvt"]
+
+[ext_resource type="Script" uid="uid://yqhgfgifyvnd" path="res://scripts/levels/level.gd" id="1_level"]
+[ext_resource type="Texture2D" uid="uid://ba5lhy6lsbx7r" path="res://sprites/Kingdom_Pxels_Starter_Bundle/Background/Parallax/Forest/Image_1.png" id="bg_1"]
+[ext_resource type="Texture2D" uid="uid://dcx07tgpcnshk" path="res://sprites/Kingdom_Pxels_Starter_Bundle/Background/Parallax/Forest/Image_2.png" id="bg_2"]
+[ext_resource type="Texture2D" uid="uid://chim7i7hkyf0p" path="res://sprites/Kingdom_Pxels_Starter_Bundle/Background/Parallax/Forest/Image_3.png" id="bg_3"]
+[ext_resource type="Texture2D" uid="uid://bpxovaks14x5o" path="res://sprites/Kingdom_Pxels_Starter_Bundle/Background/Parallax/Forest/Image_4.png" id="bg_4"]
+[ext_resource type="Texture2D" uid="uid://b7g2mffwf2hrs" path="res://sprites/Kingdom_Pxels_Starter_Bundle/Background/Parallax/Forest/Image_5.png" id="bg_5"]
+[ext_resource type="PackedScene" path="res://scenes/objects/chest.tscn" id="chest"]
+[ext_resource type="Resource" uid="uid://djfdoqmj14a5v" path="res://items/gema_dourada.tres" id="gema_dourada"]
+[ext_resource type="Resource" uid="uid://br7vgnj3ylgi8" path="res://items/gema_verde.tres" id="gema_verde"]
+[ext_resource type="Resource" uid="uid://dxdchydafj532" path="res://items/gema_vermelha.tres" id="gema_vermelha"]
+[ext_resource type="Script" uid="uid://cqp2s5msqw4qf" path="res://scripts/objects/kill_zone.gd" id="kill_zone"]
+[ext_resource type="PackedScene" path="res://scenes/objects/platform.tscn" id="platform"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kill"]
+size = Vector2(1500, 60)
+
+[node name="Level01" type="Node2D" unique_id=504023018]
+script = ExtResource("1_level")
+
+[node name="Background" type="Node2D" parent="." unique_id=2041661204]
+
+[node name="Sky" type="Parallax2D" parent="Background" unique_id=690943173]
+scroll_scale = Vector2(0.02, 1)
+repeat_size = Vector2(192, 0)
+repeat_times = 12
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Sky" unique_id=1434335728]
+texture = ExtResource("bg_1")
+centered = false
+
+[node name="TreesFar" type="Parallax2D" parent="Background" unique_id=283185122]
+scroll_scale = Vector2(0.2, 1)
+repeat_size = Vector2(192, 0)
+repeat_times = 12
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/TreesFar" unique_id=291799892]
+texture = ExtResource("bg_2")
+centered = false
+
+[node name="TreesMid" type="Parallax2D" parent="Background" unique_id=1625237085]
+scroll_scale = Vector2(0.35, 1)
+repeat_size = Vector2(192, 0)
+repeat_times = 12
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/TreesMid" unique_id=2068106037]
+texture = ExtResource("bg_3")
+centered = false
+
+[node name="Village" type="Parallax2D" parent="Background" unique_id=1536929556]
+scroll_scale = Vector2(0.55, 1)
+repeat_size = Vector2(192, 0)
+repeat_times = 12
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Village" unique_id=112351478]
+texture = ExtResource("bg_4")
+centered = false
+
+[node name="TreesNear" type="Parallax2D" parent="Background" unique_id=1920141489]
+scroll_scale = Vector2(0.75, 1)
+repeat_size = Vector2(192, 0)
+repeat_times = 12
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/TreesNear" unique_id=2126909263]
+texture = ExtResource("bg_5")
+centered = false
+
+[node name="Platforms" type="Node2D" parent="." unique_id=1620204689]
+
+[node name="FloorA" parent="Platforms" unique_id=1709287068 instance=ExtResource("platform")]
+position = Vector2(0, 92)
+size = Vector2(400, 16)
+
+[node name="Step1" parent="Platforms" unique_id=897800970 instance=ExtResource("platform")]
+position = Vector2(436, 76)
+size = Vector2(32, 16)
+
+[node name="Step2" parent="Platforms" unique_id=1670587881 instance=ExtResource("platform")]
+position = Vector2(504, 60)
+size = Vector2(32, 16)
+
+[node name="Step3" parent="Platforms" unique_id=855232398 instance=ExtResource("platform")]
+position = Vector2(572, 76)
+size = Vector2(32, 16)
+
+[node name="FloorB" parent="Platforms" unique_id=1594847307 instance=ExtResource("platform")]
+position = Vector2(640, 92)
+size = Vector2(640, 16)
+
+[node name="Chests" type="Node2D" parent="." unique_id=821136485]
+
+[node name="Chest1" parent="Chests" unique_id=1907766023 instance=ExtResource("chest")]
+position = Vector2(300, 87)
+lines = Array[String](["Você abre o baú empoeirado...", "Dentro dele há uma Gema Verde!"])
+item = ExtResource("gema_verde")
+
+[node name="Chest2" parent="Chests" unique_id=1026229443 instance=ExtResource("chest")]
+position = Vector2(520, 55)
+lines = Array[String](["Um baú escondido no alto!", "Você encontrou uma Gema Vermelha."])
+item = ExtResource("gema_vermelha")
+
+[node name="Chest3" parent="Chests" unique_id=146220429 instance=ExtResource("chest")]
+position = Vector2(1100, 87)
+lines = Array[String](["O último baú da fase...", "Dentro dele há uma Gema Dourada!"])
+item = ExtResource("gema_dourada")
+
+[node name="KillZone" type="Area2D" parent="." unique_id=818221839]
+position = Vector2(640, 150)
+script = ExtResource("kill_zone")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=899278477]
+shape = SubResource("RectangleShape2D_kill")
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=2031390466]
+position = Vector2(32, 82)
