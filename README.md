@@ -5,4 +5,4 @@
 - Caixa de diálogo com texto aparecendo letra por letra.
 - Inventário simples.
 
-### A cena, e script em que estão esta em um outro README dentro do projeto
+### A cena, e script em que estão esta em um outro README dentro do projeto chamado MANUAL
